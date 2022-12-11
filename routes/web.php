@@ -1,7 +1,15 @@
 <?php
+declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ShoppingListController;
+use App\Http\Controllers\CompletedShoppingListController;
+
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +56,3 @@ Route::prefix('/admin')->group(function () {
     // ログアウト
     Route::get('/logout', [AdminAuthController::class, 'logout']);
 });
-
