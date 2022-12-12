@@ -22,8 +22,8 @@ class ShoppingListController extends Controller
     protected function getListBuilder()
     {
         return shopping_lists::where('user_id', Auth::id())
-                     ->orderBy('priority', 'DESC')
-                     ->orderBy('period')
+                      ->orderBy('name')
+                     ->orderBy('updated_at')
                      ->orderBy('created_at');
     }
 
@@ -150,7 +150,6 @@ var_dump($sql);
         $task->name = $datum['name'];
         $task->period = $datum['period'];
         $task->detail = $datum['detail'];
-        $task->priority = $datum['priority'];
 
         // 可変変数を使った書き方(参考)
         foreach($datum as $k => $v) {
@@ -173,7 +172,7 @@ var_dump($sql);
     public function delete(Request $request, $task_id)
     {
         // task_idのレコードを取得する
-        $task = $this->getTaskModel($task_id);
+        $task = $this->getshopping_lits($task_id);
 
         // タスクを削除する
         if ($task !== null) {
@@ -196,7 +195,7 @@ var_dump($sql);
             DB::beginTransaction();
 
             // task_idのレコードを取得する
-            $task = $this->getTaskModel($task_id);
+            $task = $this->getshopping_lits($task_id);
             if ($task === null) {
                 // task_idが不正なのでトランザクション終了
                 throw new \Exception('');
