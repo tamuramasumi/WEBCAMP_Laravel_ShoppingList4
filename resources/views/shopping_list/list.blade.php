@@ -34,7 +34,7 @@
             </form>
  <h1>「買うもの」一覧</h1>
  
-    <a href="/completed_shopping_lists/list">購入済み「買うもの」一覧</a><br>
+    <a href="/completed_shopping_list/list">購入済み「買うもの」一覧</a><br>
         <table border="1">
         <tr>
             <th>登録日
@@ -43,7 +43,8 @@
         <tr>
             <td>{{ $task->created_at }}
             <td>{{ $task->name }}
-            <td><form action="{{ route('complete', ['task_id' => $task->id]) }}" method="post"> @csrf <button onclick='return confirm("このタスクを「完了」にします。よろしいですか？");' >完了</button></form></a>
+            <td><form action="{{ route('complete', ['shopping_list_id' => $task->id]) }}" method="post"> @csrf <button onclick='return confirm("この「買うもの」を「完了」にします。よろしいですか？");' >完了</button></form>
+            </a>
 @endforeach
         </table>
         <!-- ページネーション -->
