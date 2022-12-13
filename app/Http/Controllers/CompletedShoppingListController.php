@@ -19,7 +19,7 @@ class CompletedShoppingListController extends Controller
     }
 
     /**
-     * タスク一覧ページ を表示する
+     *買うもの一覧
      * 
      * @return \Illuminate\View\View
      */
