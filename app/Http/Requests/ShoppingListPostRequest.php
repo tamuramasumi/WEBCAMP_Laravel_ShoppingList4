@@ -17,7 +17,6 @@ class ShoppingListPostRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:128'],
-            'detail' => ['max:65535'],
-        ];
+               ];
     }
 }
