@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\completed_shopping_lists;
 
 
-use Symfony\Component\HttpFoundation\StreamedResponse;
+
 
 class ShoppingListController extends Controller
 {
@@ -77,10 +77,10 @@ var_dump($sql);
         $request->session()->flash('front.shopping_list', true);
 
         //
-        return redirect('/shopping_list/list');
+        return redirect(route('front.list'));
     }
     /**
-     * 「単一のタスク」Modelの取得
+     * 「単一の買うものModelの取得
     */
     protected function getshopping_lists($shopping_list_id)
     {
@@ -98,36 +98,21 @@ var_dump($sql);
     }
 
     /**
-     * 「単一のタスク」の表示
-    */
-    protected function singleTaskRender($shopping_list_id, $template_name)
-    {
-        // shopping_list_idのレコードを取得する
-        $task = $this->getshopping_lists($shopping_list_id);
-        if ($task === null) {
-            return redirect('/shopping_list/list');
-        }
-
-        // テンプレートに「取得したレコード」の情報を渡す
-        return view($template_name, ['shopping_list' => $task]);
-    }
-    
-    /**
      * 削除ボタン
     */ 
     public function delete(Request $request, $shopping_list_id)
     {
         // shopping_idのレコードを取得する
-        $task = $this->getshopping_lits($shopping_list_id);
+        $task = $this->getshopping_lists($shopping_list_id);
 
         // 買うものを削除する
         if ($task !== null) {
             $task->delete();
-            $request->session()->flash('front.completed_shopping_list_delete', true);
+            $request->session()->flash('front.shopping_list_delete_success', true);
         }
 
         // 一覧に遷移する
-        return redirect('/shopping_list/list');
+        return redirect(route('front.list'));
     }
 
     /**

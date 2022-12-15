@@ -8,7 +8,7 @@
 
 
 <h1>「買うもの」の登録</h1>
- @if (session('front.shopping_list_register_success') == true)
+            @if (session('front.shopping_list_register_success') == true)
                 買うものを登録しました！！<br>
             @endif
             @if (session('front.shopping_list_delete_success') == true)
@@ -44,7 +44,10 @@
             <td>{{ $task->created_at }}
             <td>{{ $task->name }}
             <td><form action="{{ route('complete', ['shopping_list_id' => $task->id]) }}" method="post"> @csrf <button onclick='return confirm("この「買うもの」を「完了」にします。よろしいですか？");' >完了</button></form>
-             <td><form action="{{ route('delete', ['shopping_list_id' => $task->id]) }}" method="delete"> @csrf<button onclick='return confirm("この「買うもの」を「削除」にします。よろしいですか？");' >削除</button></form>        </a>
+             <td><form action="{{ route('delete', ['shopping_list_id' => $task->id]) }}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button onclick='return confirm("この「買うもの」を「削除」にします。よろしいですか？");' >削除</button></form></a>
 @endforeach
         </table>
         <!-- ページネーション -->
