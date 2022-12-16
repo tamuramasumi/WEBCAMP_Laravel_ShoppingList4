@@ -3,15 +3,16 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminLoginPostRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 class AuthController extends controller
 {
-    /**
-     * 一覧用の Illuminate\Database\Eloquent\Builder インスタンスの取得
-     */
+    
     protected function index()
     {
-        return view('/admin.index');
+        return view('admin.index');
     }
 }
