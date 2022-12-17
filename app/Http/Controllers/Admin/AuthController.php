@@ -42,4 +42,15 @@ class AuthController extends controller
         return redirect()->intended('/admin/top');
     
     }
+    /**
+     * ログアウト
+     * 
+     */
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+        $request->session()->regenerateToken();  // CSRFトークンの再生成
+        $request->session()->regenerate();  // セッションIDの再生成
+        return redirect(route('admin.index'));
+    }
 }

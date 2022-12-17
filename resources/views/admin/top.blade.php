@@ -12,7 +12,7 @@
         管理画面機能 2<br>
         管理画面機能 3<br>
         管理画面機能 4<br>
-        <a href="./index.html">ログアウト</a><br>
+        <a href="/admin/logout">ログアウト</a><br>
         </menu>
 
         <h1>管理画面</h1>
