@@ -26,20 +26,20 @@ class AuthController extends controller
 
         // データの取得
         $datum = $request->validated();
-        var_dump($datum); exit;
+        //var_dump($datum); exit;
 
-        /*
+        
         // 認証
-        if (Auth::attempt($datum) === false) {
+        if (Auth::guard('admin')->attempt($datum) === false) {
             return back()
                    ->withInput() // 入力値の保持
-                   ->withErrors(['auth' => 'emailかパスワードに誤りがあります。',]) // エラーメッセージの出力
+                   ->withErrors(['auth' => 'ログインIDかパスワードに誤りがあります。',]) // エラーメッセージの出力
                    ;
         }
 
-        //
+        
         $request->session()->regenerate();
-        return redirect()->intended('/task/list');
-        */
+        return redirect()->intended('/admin/top');
+    
     }
 }
