@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+@extends('admin.layout')
+
+{{-- メインコンテンツ --}}
+@section('contets')
         <title>ログイン機能付き買い物管理サービス　管理画面</title>
     </head>
     <body>
