@@ -74,7 +74,7 @@ var_dump($sql);
         }
 
         // 買うもの登録成功
-        $request->session()->flash('front.shopping_list', true);
+        $request->session()->flash('front.shopping_list/list_success', true);
 
         //
         return redirect(route('front.list'));
