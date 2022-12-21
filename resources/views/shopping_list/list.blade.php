@@ -44,6 +44,7 @@
             <td>{{ $task->created_at }}
             <td>{{ $task->name }}
             <td><form action="{{ route('complete', ['shopping_list_id' => $task->id]) }}" method="post"> @csrf <button onclick='return confirm("この「買うもの」を「完了」にします。よろしいですか？");' >完了</button></form>
+            <td>　</td>
              <td><form action="{{ route('delete', ['shopping_list_id' => $task->id]) }}" method="post">
                   @csrf
                   @method('DELETE')
