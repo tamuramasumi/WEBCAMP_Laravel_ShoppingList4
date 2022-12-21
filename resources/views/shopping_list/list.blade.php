@@ -8,17 +8,8 @@
 
 
 <h1>「買うもの」の登録</h1>
-            @if (session('front.shopping_list_register_success') == true)
+            @if (session('front.shopping_list/list_success') == true)
                 買うものを登録しました！！<br>
-            @endif
-            @if (session('front.shopping_list_delete_success') == true)
-                買うものを削除しました！！<br>
-            @endif
-            @if (session('front.shopping_list_completed_success') == true)
-                買うものを完了にしました！！<br>
-            @endif
-            @if (session('front.shopping_list_completed_failure') == true)
-                買うものの完了に失敗しました....<br>
             @endif
             @if ($errors->any())
                 <div>
