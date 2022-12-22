@@ -14,7 +14,7 @@
 @foreach ($list as $task)
         <tr>
             <td>{{ $task->name }}
-            <td>{{ $task->created_at }}
+            <td>{{ $task->created_at->format('y/m/d') }}
 @endforeach
         </table>
         <!-- ページネーション -->
